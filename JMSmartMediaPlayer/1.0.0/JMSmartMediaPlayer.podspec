@@ -10,6 +10,8 @@ Pod::Spec.new do |s|
   s.libraries = ["c++", "z", "bz2", "iconv"]
   s.requires_arc = true
   s.source = { :http => "http://10.0.10.85/apppublic/jimirepofile/raw/master/#{s.name}/#{s.name}-#{s.version}.zip?inline=false", :type => "zip" }
+  s.pod_target_xcconfig = { 'ARCHS[sdk=iphonesimulator*]' => '$(ARCHS_STANDARD_64_BIT)' }
+  s.xcconfig = { 'VALID_ARCHS' => ['x86_64','armv7','armv7s','arm64','arm64e'] }
 
   s.ios.deployment_target    = '8.0'
   s.ios.vendored_framework   = 'JMSmartMediaPlayer.framework'
